@@ -5,29 +5,18 @@ const clothesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    brand: {
+    itemUrl: {
         type: String,
         required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
+    validate: { 
+        validator: value => validator.isURL(value, { protocols: ['http','https','ftp'], require_tld: true, require_protocol: true }),
+        message: 'Must be a Valid URL' 
+        }
     },
     imageUrl: {
         type: String,
         required: true,
-    },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-    },
-    collections: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Collection',
-        },
-    ],
+    }
 });
 
 const Clothes = mongoose.model('Clothes', clothesSchema);
