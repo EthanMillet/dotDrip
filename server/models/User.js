@@ -6,7 +6,7 @@ const Clothes = require('./Clothes');
 const Outfits = require('./Outfits')
 
 const userSchema = new Schema({
-  Username: {
+  username: {
     type: String,
     required: true,
     trim: true
