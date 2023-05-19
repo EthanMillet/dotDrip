@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.side-bar{
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  width: auto;
+  background:#fff;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
+  z-index:100;
+  transition:0.3s;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.side-bar .button{
+  display:block;
+  width:100%;
+  padding:20px 0;
+  background:none;
+  border:none;
+  outline:none;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  text-align:left;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.side-bar .button:hover{
+  background:rgba(0,0,0,0.05);
+}
