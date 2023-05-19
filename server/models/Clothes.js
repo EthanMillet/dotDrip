@@ -7,8 +7,6 @@ const clothesSchema = new mongoose.Schema({
     },
     itemUrl: {
         type: String,
-
-
     },
     imageUrl: {
         type: String,

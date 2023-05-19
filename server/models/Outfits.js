@@ -4,6 +4,10 @@ const { Schema } = mongoose;
 const Clothes = require('./Clothes');
 
 const outfitSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   item1: {type: Schema.Types.ObjectId, ref: 'Clothes'},    
   item2: {type: Schema.Types.ObjectId, ref: 'Clothes'}, 
   item3: {type: Schema.Types.ObjectId, ref: 'Clothes'},
