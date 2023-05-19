@@ -42,28 +42,70 @@
   top:0;
   left:0;
   bottom:0;
-  width: auto;
+  width: 120px;
   background:#fff;
   box-shadow:0 0 10px rgba(0,0,0,0.3);
   z-index:100;
   transition:0.3s;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .side-bar .button{
   display:block;
-  width:100%;
-  padding:20px 0;
+  padding: 20px 20px;
   background:none;
   border:none;
   outline:none;
   border-bottom:1px solid rgba(0,0,0,0.05);
-  text-align:left;
+  text-align:center;
   cursor:pointer;
   transition:0.3s;
+  text-decoration: none;
+  color: #000;
 }
 
 .side-bar .button:hover{
+  background:rgba(0,0,0,0.05);
+}
+
+.search{
+  position:fixed;
+  top:0;
+  left:120px;
+  right:0;
+  height: 60px;
+  background:#fff;
+  box-shadow:4px 4px 4px rgba(0,0,0,0.3);
+  z-index:100;
+  transition:0.3s;
+  outline: none;
+  border: none;
+  font-size: 40px;
+  padding-left: 20px;
+  padding-right: 80px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.search:hover{
+  background:rgba(0,0,0,0.05);
+}
+
+.search:focus::placeholder{
+  color: transparent;
+  transition: 0.2s;
+}
+
+.login{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 80px;
+  height: 60px;
+  background: #fff;
+  border: none;
+  z-index: 100;
+}
+
+.login:hover{
   background:rgba(0,0,0,0.05);
 }

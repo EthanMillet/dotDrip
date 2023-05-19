@@ -56,7 +56,7 @@ const Sidebar = () => {
 
             <header className='header'>
                 <div className='header'>
-                    <input className='search' default='SEARCH...'></input>
+                    <input className='search' placeholder='Find outfits...'></input>
                     <button className='login' onClick={openModal}>Login</button>
                     <Modal
         isOpen={modalIsOpen}
