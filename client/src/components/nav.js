@@ -98,39 +98,38 @@ const Sidebar = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
+        <div className='login-modal'> 
+            <div className='modal-header'>
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Log in</h2>
+                <button onClick={closeModal}>X</button>
+            </div>
+            <div className='modal-body'>
+                <form onSubmit={handleFormSubmit}>
+                    <label htmlFor="email">Email: </label>
+                    <input
+                        placeholder="email@test.com"
+                        name="email"
+                        type="email"
+                        id="email"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="pwd">Password: </label>
+                    <input
+                        placeholder="******"
+                        name="password"
+                        type="password"
+                        id="pwd"
+                        onChange={handleChange}
+                    />
+                    {error ? (
+                    <div>
+                        <p className="error-text">The provided credentials are incorrect</p>
+                    </div>
+                    ) : null}
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        {error ? (
-          <div>
-            <p className="error-text">The provided credentials are incorrect</p>
-          </div>
-        ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
       </Modal>
                 </div>
             </header>
