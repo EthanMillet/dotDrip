@@ -17,5 +17,6 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "idb-promise": "^0.0.3"
   }
 }

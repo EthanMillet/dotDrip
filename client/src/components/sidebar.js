@@ -16,6 +16,9 @@ const Sidebar = () => {
             <Link className='button' to='/'>
                 <span>PROFILE</span>
             </Link>
+            <Link className='button' to='/'>
+                <span>CONTACT</span>
+            </Link>
         </div>
     )
 }

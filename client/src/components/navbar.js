@@ -10,6 +10,9 @@ const Landing = () => {
                 <input className='search' default='SEARCH...'></input>
                 <Link to='/login'>LOGIN</Link>
             </div>
+            <div className='cards-div'>
+                
+            </div>
         </div>
     )
 }
