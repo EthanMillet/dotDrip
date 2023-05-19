@@ -5,6 +5,7 @@ const typeDefs = gql`
         _id: ID!
         username: String!
         email: String!
+        password: String!
         clothes: [Clothes!]!
         outfits: [Outfit!]!
       }
@@ -41,8 +42,8 @@ const typeDefs = gql`
 
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        addOutfit(item1: ID!, item2: ID!, item3: ID!, item4: ID, item5: ID, item1: ID, item6: ID, item1: ID, item7: ID, ): Outfit
-        addClothes(name: String!, itemURL: String!, imageURL: String!): Clothes
+        addOutfit(item1: ID!, item2: ID!, item3: ID!, item4: ID, item5: ID, item6: ID, item7: ID): Outfit
+        addClothes(name: String!, itemUrl: String!, imageUrl: String!): Clothes
         login(email: String!, password: String!): Auth
     }
 `

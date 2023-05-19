@@ -30,30 +30,28 @@ const resolvers = {
       addUser: async (parent, args, context) => {
         const user = await User.create(args);
         const token = signToken(user);
-  
         return { token, user };
       },
       addOutfit: async (parent, args, context) => {
+        console.log(context);
         if (context.user) {
         const outfit = Outfits.create(args);
-        
-        await User.findByIdAndUpdate(context.user._id, { $push: {outfits: outfit} })
-
-
+        await User.findByIdAndUpdate(context.user._id, {$push: {outifts: outfit}})
         return outfit;
-      }
-    },
-    addClothes: async (parent, args, context) => {
+        }
+        throw new AuthenticationError('Not logged in');
+      },
+      addClothes: async (parent, args, context) => {
+        console.log(context);
         if (context.user) {
-        const clothes = Clothes.create(args);
-        
-        await User.findByIdAndUpdate(context.user._id, { $push: {clothes: clothes} })
-
-
-        return outfit;
+        const clothing = await Clothes.create(args);
+        await User.findByIdAndUpdate(context.user._id, {$push: {clothes: clothing}})
+        return clothing;
       }
-    },
-    login: async (parent, { email, password }) => {
+        
+      throw new AuthenticationError('Not logged in');
+      },
+      login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
   
         if (!user) {
