@@ -1,0 +1,18 @@
+.ws-card {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 33.775%;
+    height: 51.994%;
+}
+
+/* body {
+    background-image: radial-gradient(rgb(249, 241, 186), rgb(237, 227, 178), rgb(230, 237, 131));
+} */
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
