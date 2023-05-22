@@ -10,7 +10,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Nav from './components/nav.js'
 
-import Create from './components/create.js'
+import Create from './components/Create.js'
 import Profile from './components/wardrobe/profile'
 
 
