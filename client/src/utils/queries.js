@@ -115,6 +115,7 @@ export const GET_OUTFITS = gql`
   query getOutfits {
     outfits {
       _id
+      name
       item1 {
         _id
         name
@@ -162,8 +163,8 @@ export const GET_OUTFITS = gql`
 `;
 
 export const GET_CLOTHES = gql`
-  query getClothes($_id: ID!) {
-    clothes(_id: $_id) {
+  query getClothes {
+    clothes {
       _id
       name
       itemUrl

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import LandingCards from './landing/landingCards'
 
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
@@ -19,7 +20,7 @@ const customStyles = {
   },
 };
 
-  Modal.setAppElement('#root');
+Modal.setAppElement('#root');
 
 
 const Sidebar = () => {
@@ -32,94 +33,94 @@ const Sidebar = () => {
       );
     } else {
       return (
-<>
-<button className='SignUp' onClick={openModal2}>Sign Up</button>
-<Modal
-          isOpen={modalIsOpen2}
-          onAfterOpen={afterOpenModal2}
-          onRequestClose={closeModal2}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <div className='login-modal'>
-            <div className='modal-header'>
-              <h2 ref={(_subtitle) => (subtitle2 = _subtitle)}>Sign Up</h2>
-              <button onClick={closeModal2}>X</button>
-            </div>
-            <div className='modal-body'>
-              <form onSubmit={handleFormSubmit2}>
-                <label htmlFor="username"> User Name:</label>
-                <input
-                  placeholder="User Name"
-                  name="username"
-                  type="username"
-                  id="username"
-                  onChange={handleChange2} />
+        <>
+          <button className='SignUp' onClick={openModal2}>Sign Up</button>
+          <Modal
+            isOpen={modalIsOpen2}
+            onAfterOpen={afterOpenModal2}
+            onRequestClose={closeModal2}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
+            <div className='login-modal'>
+              <div className='modal-header'>
+                <h2 ref={(_subtitle) => (subtitle2 = _subtitle)}>Sign Up</h2>
+                <button onClick={closeModal2}>X</button>
+              </div>
+              <div className='modal-body'>
+                <form onSubmit={handleFormSubmit2}>
+                  <label htmlFor="username"> User Name:</label>
+                  <input
+                    placeholder="User Name"
+                    name="username"
+                    type="username"
+                    id="username"
+                    onChange={handleChange2} />
 
-                <label htmlFor="email">Email: </label>
-                <input
-                  placeholder="email@test.com"
-                  name="email"
-                  type="email"
-                  id="email"
-                  onChange={handleChange2} />
-                <label htmlFor="pwd">Password: </label>
-                <input
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  id="pwd"
-                  onChange={handleChange2} />
-                {error ? (
-                  <div>
-                    <p className="error-text">The provided credentials are incorrect</p>
-                  </div>
-                ) : null}
-                <button type="submit">Submit</button>
-              </form>
+                  <label htmlFor="email">Email: </label>
+                  <input
+                    placeholder="email@test.com"
+                    name="email"
+                    type="email"
+                    id="email"
+                    onChange={handleChange2} />
+                  <label htmlFor="pwd">Password: </label>
+                  <input
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    id="pwd"
+                    onChange={handleChange2} />
+                  {error ? (
+                    <div>
+                      <p className="error-text">The provided credentials are incorrect</p>
+                    </div>
+                  ) : null}
+                  <button type="submit">Submit</button>
+                </form>
+              </div>
             </div>
-          </div>
-        </Modal>
+          </Modal>
 
-<button className='login' onClick={openModal}>Login</button>
-<Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <div className='login-modal'>
-            <div className='modal-header'>
-              <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Log in</h2>
-              <button onClick={closeModal}>X</button>
+          <button className='login' onClick={openModal}>Login</button>
+          <Modal
+            isOpen={modalIsOpen}
+            onAfterOpen={afterOpenModal}
+            onRequestClose={closeModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
+            <div className='login-modal'>
+              <div className='modal-header'>
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Log in</h2>
+                <button onClick={closeModal}>X</button>
+              </div>
+              <div className='modal-body'>
+                <form onSubmit={handleFormSubmit}>
+                  <label htmlFor="email">Email: </label>
+                  <input
+                    placeholder="email@test.com"
+                    name="email"
+                    type="email"
+                    id="email"
+                    onChange={handleChange} />
+                  <label htmlFor="pwd">Password: </label>
+                  <input
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    id="pwd"
+                    onChange={handleChange} />
+                  {error ? (
+                    <div>
+                      <p className="error-text">The provided credentials are incorrect</p>
+                    </div>
+                  ) : null}
+                  <button type="submit">Submit</button>
+                </form>
+              </div>
             </div>
-            <div className='modal-body'>
-              <form onSubmit={handleFormSubmit}>
-                <label htmlFor="email">Email: </label>
-                <input
-                  placeholder="email@test.com"
-                  name="email"
-                  type="email"
-                  id="email"
-                  onChange={handleChange} />
-                <label htmlFor="pwd">Password: </label>
-                <input
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  id="pwd"
-                  onChange={handleChange} />
-                {error ? (
-                  <div>
-                    <p className="error-text">The provided credentials are incorrect</p>
-                  </div>
-                ) : null}
-                <button type="submit">Submit</button>
-              </form>
-            </div>
-          </div>
-        </Modal></>
+          </Modal></>
       );
     }
   }
@@ -145,7 +146,7 @@ const Sidebar = () => {
 
   let subtitle2;
   const [modalIsOpen2, setIsOpen2] = React.useState(false);
- 
+
 
   function openModal2() {
     setIsOpen2(true);
@@ -191,7 +192,7 @@ const Sidebar = () => {
   };
 
   const [formState2, setFormState2] = useState({ email: '', password: '' });
-   const [addUser] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit2 = async (event) => {
     event.preventDefault();
@@ -214,32 +215,34 @@ const Sidebar = () => {
     });
   };
 
-    return (
-        <div className='nav'>
+  return (
+    <div className='nav'>
 
-            <div className='side-bar'>
-                <Link className='button' to='/'>
-                    <span>HOME</span>
-                </Link>
-                <Link className='button' to='/profile'>
-                    <span>PROFILE</span>
-                </Link>
-                <Link className='button' to='/create'>
-                    <span>CREATE</span>
-                </Link>
-            </div>
-
-            <header className='header'>
-                <div className='header'>
-                    <input className='search' placeholder='Find outfits...'></input>
-                    <div> 
-                    {showNavigation()}
+      <div className='side-bar'>
+        <Link className='button' to='/'>
+          <span>HOME</span>
+        </Link>
+        <Link className='button' to='/profile'>
+          <span>PROFILE</span>
+        </Link>
+        <Link className='button' to='/create'>
+          <span>CREATE</span>
+        </Link>
       </div>
-                </div>
-            </header>
-            
+
+      <header className='header'>
+        <div className='header'>
+          <input className='search' placeholder='Find outfits...'></input>
+          <div>
+            {showNavigation()}
+          </div>
         </div>
-    )
+      </header>
+
+      <LandingCards></LandingCards>
+
+    </div>
+  )
 }
 
 export default Sidebar;
