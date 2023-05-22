@@ -6,62 +6,9 @@ export const ADD_USER = gql`
       token
       user {
         _id
-        username
-        email
-        clothes {
-          _id
-          name
-          itemUrl
-          imageUrl
-        }
-        outfits {
-          _id
-          item1 {
-            _id
-            name
-            itemUrl
-            imageUrl
-          }
-          item2 {
-            _id
-            name
-            itemUrl
-            imageUrl
-          }
-          item3 {
-            _id
-            name
-            itemUrl
-            imageUrl
-          }
-          item4 {
-            _id
-            name
-            itemUrl
-            imageUrl
-          }
-          item5 {
-            _id
-            name
-            itemUrl
-            imageUrl
-          }
-          item6 {
-            _id
-            name
-            itemUrl
-            imageUrl
-          }
-          item7 {
-            _id
-            name
-            itemUrl
-            imageUrl
-          }
-        }
       }
     }
-  }
+    }
 `;
 
 export const ADD_OUTFIT = gql`
