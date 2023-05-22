@@ -8,15 +8,15 @@ import Auth from '../utils/auth';
 import Modal from 'react-modal';
 
 const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-  };
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
   Modal.setAppElement('#root');
 
@@ -102,9 +102,9 @@ const Sidebar = () => {
         variables: { email: formState.email, password: formState.password },
       });
       if (loading) {
-        return (   
-        <p> Loading </p>)
-        
+        return (
+          <p> Loading </p>)
+
       }
       const token = mutationResponse.data.login.token;
       Auth.login(token);
