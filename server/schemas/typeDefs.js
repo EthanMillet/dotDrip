@@ -19,6 +19,7 @@ const typeDefs = gql`
       
       type Outfit {
         _id: ID!
+        name: String!
         item1: Clothes!
         item2: Clothes!
         item3: Clothes!
