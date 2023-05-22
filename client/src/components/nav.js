@@ -23,6 +23,58 @@ const customStyles = {
 
 const Sidebar = () => {
 
+
+  function showNavigation() {
+    if (Auth.loggedIn()) {
+      return (
+        <button className='login' onClick={() => Auth.logout()}>Logout</button>
+      );
+    } else {
+      return (
+<><button className='login' onClick={openModal}>Login</button><Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <div className='login-modal'>
+            <div className='modal-header'>
+              <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Log in</h2>
+              <button onClick={closeModal}>X</button>
+            </div>
+            <div className='modal-body'>
+              <form onSubmit={handleFormSubmit}>
+                <label htmlFor="email">Email: </label>
+                <input
+                  placeholder="email@test.com"
+                  name="email"
+                  type="email"
+                  id="email"
+                  onChange={handleChange} />
+                <label htmlFor="pwd">Password: </label>
+                <input
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  id="pwd"
+                  onChange={handleChange} />
+                {error ? (
+                  <div>
+                    <p className="error-text">The provided credentials are incorrect</p>
+                  </div>
+                ) : null}
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </Modal></>
+      );
+    }
+  }
+
+
+
     let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -93,47 +145,9 @@ const Sidebar = () => {
             <header className='header'>
                 <div className='header'>
                     <input className='search' placeholder='Find outfits...'></input>
-                    <button className='login' onClick={openModal}>Login</button>
-                    <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <div className='login-modal'> 
-            <div className='modal-header'>
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Log in</h2>
-                <button onClick={closeModal}>X</button>
-            </div>
-            <div className='modal-body'>
-                <form onSubmit={handleFormSubmit}>
-                    <label htmlFor="email">Email: </label>
-                    <input
-                        placeholder="email@test.com"
-                        name="email"
-                        type="email"
-                        id="email"
-                        onChange={handleChange}
-                    />
-                    <label htmlFor="pwd">Password: </label>
-                    <input
-                        placeholder="******"
-                        name="password"
-                        type="password"
-                        id="pwd"
-                        onChange={handleChange}
-                    />
-                    {error ? (
-                    <div>
-                        <p className="error-text">The provided credentials are incorrect</p>
-                    </div>
-                    ) : null}
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
-      </Modal>
+                    <div> 
+                    {showNavigation()}
+      </div>
                 </div>
             </header>
             
