@@ -11,6 +11,8 @@ import { setContext } from '@apollo/client/link/context';
 import Nav from './components/nav.js'
 
 import Create from './components/create.js'
+import Profile from './components/wardrobe/profile'
+
 
 const httpLink = createHttpLink({
   uri: process.env.herokuLink || 'http://localhost:3001/graphql',
@@ -39,9 +41,11 @@ function App() {
         </Route>
 
         <Route path="/create" element={<Create />}>
-
-
         </Route>
+
+        <Route path="/profile" element={<Profile />}>
+        </Route>
+        
       </Routes>
 
       </ApolloProvider>
