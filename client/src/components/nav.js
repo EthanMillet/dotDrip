@@ -69,40 +69,40 @@ const Sidebar = () => {
     });
   };
 
-  return (
-    <div className='nav'>
+    return (
+        <div className='nav'>
 
-      <div className='side-bar'>
-        <Link className='button' to='/'>
-          <span>HOME</span>
-        </Link>
-        <Link className='button' to='/'>
-          <span>WARDROBE</span>
-        </Link>
-        <Link className='button' to='/'>
-          <span>CREATE</span>
-        </Link>
-        <Link className='button' to='/'>
-          <span>PROFILE</span>
-        </Link>
-        <Link className='button' to='/'>
-          <span>CONTACT</span>
-        </Link>
-      </div>
+            <div className='side-bar'>
+                <Link className='button' to='/'>
+                    <span>HOME</span>
+                </Link>
+                <Link className='button' to='/'>
+                    <span>WARDROBE</span>
+                </Link>
+                <Link className='button' to='/create'>
+                    <span>CREATE</span>
+                </Link>
+                <Link className='button' to='/'>
+                    <span>PROFILE</span>
+                </Link>
+                <Link className='button' to='/'>
+                    <span>CONTACT</span>
+                </Link>
+            </div>
 
-      <header className='header'>
-        <div className='header'>
-          <input className='search' placeholder='Find outfits...'></input>
-          <button className='login' onClick={openModal}>Login</button>
-          <Modal
-            isOpen={modalIsOpen}
-            onAfterOpen={afterOpenModal}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-          >
-            <div className='login-modal'>
-              <div className='modal-header'>
+            <header className='header'>
+                <div className='header'>
+                    <input className='search' placeholder='Find outfits...'></input>
+                    <button className='login' onClick={openModal}>Login</button>
+                    <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className='login-modal'> 
+            <div className='modal-header'>
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Log in</h2>
                 <button onClick={closeModal}>X</button>
               </div>

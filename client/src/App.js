@@ -10,6 +10,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Nav from './components/nav.js'
 
+import Create from './components/create.js'
+
 const httpLink = createHttpLink({
   uri: process.env.herokuLink || 'http://localhost:3001/graphql',
 });
@@ -34,6 +36,11 @@ function App() {
  
       <Routes>
         <Route path="/" element={<Nav />}>
+        </Route>
+
+        <Route path="/create" element={<Create />}>
+
+
         </Route>
       </Routes>
 
