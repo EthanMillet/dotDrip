@@ -79,7 +79,7 @@ const Sidebar = () => {
                 <Link className='button' to='/'>
                     <span>WARDROBE</span>
                 </Link>
-                <Link className='button' to='/'>
+                <Link className='button' to='/create'>
                     <span>CREATE</span>
                 </Link>
                 <Link className='button' to='/'>
