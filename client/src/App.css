@@ -1,65 +1,56 @@
-.side-bar{
-  position:fixed;
-  top:0;
-  left:0;
-  bottom:0;
-  width: 120px;
-  background:#fff;
-  box-shadow:0 0 10px rgba(0,0,0,0.3);
-  z-index:100;
-  transition:0.3s;
+.side-bar, .search {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  z-index: 100;
+  transition: 0.3s;
 }
 
-.side-bar .button{
-  display:block;
-  padding: 20px 20px;
-  background:none;
-  border:none;
-  outline:none;
-  border-bottom:1px solid rgba(0,0,0,0.05);
-  text-align:center;
-  cursor:pointer;
-  transition:0.3s;
+.side-bar {
+  left: 0;
+  bottom: 0;
+  width: 120px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.side-bar .button {
+  display: block;
+  padding: 20px;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
   text-decoration: none;
   color: #000;
 }
 
-.side-bar .button:hover{
-  background:rgba(0,0,0,0.05);
+.side-bar .button:hover,
+.search:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
-.search{
-  position:fixed;
-  top:0;
-  left:120px;
-  right:0;
+.search {
+  left: 120px;
+  right: 0;
   height: 60px;
-  background:#fff;
-  box-shadow:4px 4px 4px rgba(0,0,0,0.3);
-  z-index:100;
-  transition:0.3s;
-  outline: none;
-  border: none;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
   font-size: 40px;
-  padding-left: 20px;
-  padding-right: 80px;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0 20px;
+  border: none;
 }
 
-.search:hover{
-  background:rgba(0,0,0,0.05);
-}
-
-.search:focus::placeholder{
+.search:focus::placeholder {
   color: transparent;
   transition: 0.3s;
 }
 
-.login{
+.login, .register {
   position: fixed;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   width: 80px;
   height: 60px;
   background: #fff;
@@ -67,39 +58,25 @@
   z-index: 100;
 }
 
-.login:hover{
-  background:rgba(0,0,0,0.05);
-  transition: 0.3s;
-  cursor:pointer;
-}
-
-.register{
-  position: fixed;
-  top: 0px;
+.register {
   right: 80px;
-  width: 80px;
-  height: 60px;
-  background: #fff;
-  border: none;
-  z-index: 100;
 }
 
-.register:hover{
-  background:rgba(0,0,0,0.05);
+.login:hover, .register:hover {
+  background: rgba(0, 0, 0, 0.05);
   transition: 0.3s;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.modal-header{
+.modal-header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 60px;
   font-size: 20px;
 }
 
-.modal-header button{
+.modal-header button {
   border: none;
   background: none;
   color: red;
@@ -110,27 +87,27 @@
   cursor: pointer;
 }
 
-.modal-body form input{
+.modal-body form input {
   width: 100%;
   height: 40px;
   border: none;
   outline: none;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
 
-.modal-body form input:hover{
-  border-bottom: 1px solid rgba(0,0,0,0.5);
-  background-color: rgba(0,0,0,0.05);
+.modal-body form input:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.05);
   transition: 0.3s;
 }
 
-.modal-body form input:focus::placeholder{
+.modal-body form input:focus::placeholder {
   color: transparent;
   transition: 0.2s;
 }
 
-.modal-body form button{
+.modal-body form button {
   width: 100%;
   height: 40px;
   border: none;
@@ -141,6 +118,6 @@
   cursor: pointer;
 }
 
-.modal-body form button:hover{
+.modal-body form button:hover {
   background: #660000;
 }
