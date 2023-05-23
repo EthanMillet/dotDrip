@@ -1,6 +1,7 @@
 import Clothes from './clothes.js';
 import Landingcards from '../landing/landingCards.js';
 
+
 const Profile = () => {
     return (
         <>

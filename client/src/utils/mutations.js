@@ -33,6 +33,7 @@ export const ADD_OUTFIT = gql`
       item7: $item7
     ) {
       _id
+      name
       item1 {
         _id
         name
