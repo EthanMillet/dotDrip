@@ -37,36 +37,21 @@ function Workstation() {
     };
     return(
         <div className="workstation">
-        <form></form>
-            <h1 className='title'>Create an outfit</h1>
-            <div className = "ws-card">
-                <input id="clothesItem1"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem2"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem3"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem4"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem5"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem6"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem7"></input>
-                <button>save</button>
-            </div>
+        <form>
+            <label>Top</label>
+            <input className = "ws-card"/>
+            <label>Bottoms</label>
+            <input className = "ws-card" />
+            <label>Footwear</label>
+            <input className = "ws-card" />
+            <label>accessory1</label>
+            <input className = "ws-card" />
+            <label>accessory2</label>
+            <input className = "ws-card" />
+            <label>accessory3</label>
+            <input className = "ws-card" />
+            <button type="submit">Submit</button>
+        </form>
         </div>
     );
 }
