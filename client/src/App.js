@@ -37,9 +37,7 @@ function App() {
     <ApolloProvider client={client}>
       <Nav />
       <Routes>
-        <Route path="/" element={<Nav />}>
-        </Route>
-
+        
         <Route path="/create" element={<Create />}>
         </Route>
 
