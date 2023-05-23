@@ -7,6 +7,13 @@ import { ADD_OUTFIT } from '../utils/mutations';
 
 
 
+export default function Workstation() {
+    return (
+        <body>
+            <h1 className='title'>Create an outfit</h1>
+            <div className="ws-card">Choose Wisely</div>
+        </body>
+
 function Workstation() {
     const [formState, setFormState] = useState({ name: '', item1: '', item2: '', item3: '', item4: '', item5: '', item6: '', item7: '' });
     const [addOutfit, { error, loading }] = useMutation(ADD_OUTFIT);
@@ -102,6 +109,7 @@ function Workstation() {
             <button type="submit">Submit</button>
         </form>
         </div>
+
     );
 }
 
