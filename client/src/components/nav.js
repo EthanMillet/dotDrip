@@ -34,28 +34,28 @@ const Sidebar = () => {
     } else {
       return (
         <>
-          <button className='SignUp' onClick={openModal2}>Sign Up</button>
+          <button className='register' onClick={openRegister} disabled={loginIsOpen}>Register</button>
           <Modal
-            isOpen={modalIsOpen2}
-            onAfterOpen={afterOpenModal2}
-            onRequestClose={closeModal2}
+            isOpen={registerIsOpen}
+            onAfterOpen={afteropenRegister}
+            onRequestClose={closeRegister}
             style={customStyles}
             contentLabel="Example Modal"
           >
             <div className='login-modal'>
               <div className='modal-header'>
-                <h2 ref={(_subtitle) => (subtitle2 = _subtitle)}>Sign Up</h2>
-                <button onClick={closeModal2}>X</button>
+                <h2 ref={(_subtitle) => (subtitle2 = _subtitle)}>Register</h2>
+                <button onClick={closeRegister}>X</button>
               </div>
               <div className='modal-body'>
-                <form onSubmit={handleFormSubmit2}>
+                <form onSubmit={handleSubmitRegister}>
                   <label htmlFor="username"> User Name:</label>
                   <input
                     placeholder="User Name"
                     name="username"
                     type="username"
                     id="username"
-                    onChange={handleChange2} />
+                    onChange={handleRegister} />
 
                   <label htmlFor="email">Email: </label>
                   <input
@@ -63,14 +63,14 @@ const Sidebar = () => {
                     name="email"
                     type="email"
                     id="email"
-                    onChange={handleChange2} />
+                    onChange={handleRegister} />
                   <label htmlFor="pwd">Password: </label>
                   <input
                     placeholder="******"
                     name="password"
                     type="password"
                     id="pwd"
-                    onChange={handleChange2} />
+                    onChange={handleRegister} />
                   {error ? (
                     <div>
                       <p className="error-text">The provided credentials are incorrect</p>
@@ -82,35 +82,35 @@ const Sidebar = () => {
             </div>
           </Modal>
 
-          <button className='login' onClick={openModal}>Login</button>
+          <button className='login' onClick={openLogin} disabled={registerIsOpen}>Login</button>
           <Modal
-            isOpen={modalIsOpen}
-            onAfterOpen={afterOpenModal}
-            onRequestClose={closeModal}
+            isOpen={loginIsOpen}
+            onAfterOpen={afteropenLogin}
+            onRequestClose={closeLogin}
             style={customStyles}
             contentLabel="Example Modal"
           >
             <div className='login-modal'>
               <div className='modal-header'>
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Log in</h2>
-                <button onClick={closeModal}>X</button>
+                <button onClick={closeLogin}>X</button>
               </div>
               <div className='modal-body'>
-                <form onSubmit={handleFormSubmit}>
+                <form onSubmit={handleSubmitLogin}>
                   <label htmlFor="email">Email: </label>
                   <input
                     placeholder="email@test.com"
                     name="email"
                     type="email"
                     id="email"
-                    onChange={handleChange} />
+                    onChange={handleLogin} />
                   <label htmlFor="pwd">Password: </label>
                   <input
                     placeholder="******"
                     name="password"
                     type="password"
                     id="pwd"
-                    onChange={handleChange} />
+                    onChange={handleLogin} />
                   {error ? (
                     <div>
                       <p className="error-text">The provided credentials are incorrect</p>
@@ -128,48 +128,50 @@ const Sidebar = () => {
 
 
   let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [loginIsOpen, setIsLoginOpen] = React.useState(false);
 
-  function openModal() {
-    setIsOpen(true);
+  function openLogin() {
+    setIsLoginOpen(true);
+    setRegisterOpen(false);
   }
 
-  function afterOpenModal() {
+  function afteropenLogin() {
     // references are now sync'd and can be accessed.
     subtitle.style.color = '#f00';
   }
 
-  function closeModal() {
-    setIsOpen(false);
+  function closeLogin() {
+    setIsLoginOpen(false);
   }
 
 
   let subtitle2;
-  const [modalIsOpen2, setIsOpen2] = React.useState(false);
+  const [registerIsOpen, setRegisterOpen] = React.useState(false);
 
 
-  function openModal2() {
-    setIsOpen2(true);
+  function openRegister() {
+    setRegisterOpen(true);
+    setIsLoginOpen(false);
   }
 
-  function afterOpenModal2() {
+  function afteropenRegister() {
     // references are now sync'd and can be accessed.
     subtitle2.style.color = '#f00';
   }
 
-  function closeModal2() {
-    setIsOpen2(false);
+  function closeRegister() {
+    setRegisterOpen(false);
   }
 
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [Login, setLogin] = useState({ email: '', password: '' });
   const [login, { error, loading }] = useMutation(LOGIN);
 
-  const handleFormSubmit = async (event) => {
-    console.log(formState.password)
+  const handleSubmitLogin = async (event) => {
+    console.log(Login.password)
     event.preventDefault();
     try {
       const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
+        variables: { email: Login.email, password: Login.password },
       });
       if (loading) {
         return (
@@ -183,34 +185,34 @@ const Sidebar = () => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleLogin = (event) => {
     const { name, value } = event.target;
-    setFormState({
-      ...formState,
+    setLogin({
+      ...Login,
       [name]: value,
     });
   };
 
-  const [formState2, setFormState2] = useState({ email: '', password: '' });
+  const [RegisterState, setRegisterState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
 
-  const handleFormSubmit2 = async (event) => {
+  const handleSubmitRegister = async (event) => {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
-        username: formState2.username,
-        email: formState2.email,
-        password: formState2.password,
+        username: RegisterState.username,
+        email: RegisterState.email,
+        password: RegisterState.password,
       },
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
 
-  const handleChange2 = (event) => {
+  const handleRegister = (event) => {
     const { name, value } = event.target;
-    setFormState2({
-      ...formState2,
+    setRegisterState({
+      ...RegisterState,
       [name]: value,
     });
   };
