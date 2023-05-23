@@ -13,6 +13,7 @@ export const ADD_USER = gql`
 
 export const ADD_OUTFIT = gql`
   mutation addOutfit(
+    $name: String!
     $item1: ID!
     $item2: ID!
     $item3: ID!
@@ -22,6 +23,7 @@ export const ADD_OUTFIT = gql`
     $item7: ID
   ) {
     addOutfit(
+      name: $name
       item1: $item1
       item2: $item2
       item3: $item3
