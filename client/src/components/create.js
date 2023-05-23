@@ -35,39 +35,74 @@ function Workstation() {
         [name]: value,
     });
     };
+
     return(
         <div className="workstation">
-        <form></form>
-            <h1 className='title'>Create an outfit</h1>
-            <div className = "ws-card">
-                <input id="clothesItem1"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem2"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem3"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem4"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem5"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem6"></input>
-                <button>save</button>
-            </div>
-            <div className = "ws-card">
-                <input id="clothesItem7"></input>
-                <button>save</button>
-            </div>
+        <form onSubmit={handleFormSubmit}>
+            <label>Name</label>
+            <select name="languages" id="lang">
+        <option value="javascript">JavaScript</option>
+        <option value="php">PHP</option>
+        <option value="java">Java</option>
+        <option value="golang">Golang</option>
+        <option value="python">Python</option>
+        <option value="c#">C#</option>
+        <option value="C++">C++</option>
+        <option value="erlang">Erlang</option>
+      </select>
+            <label>Top</label>
+            <input className = "ws-card"
+                                placeholder="Top"
+                                name="item1"
+                                type="item1"
+                                id="item1"
+                                onChange={handleChange}/>
+            <label>Bottoms</label>
+            <input className = "ws-card"
+                                placeholder="Bottoms"
+                                name="item2"
+                                type="item2"
+                                id="item2" 
+                                onChange={handleChange}/>
+            <label>Footwear</label>
+            <input className = "ws-card"
+                                placeholder="Footwear"
+                                name="item3"
+                                type="item3"
+                                id="item3"
+                                onChange={handleChange} />
+            <label>accessory1</label>
+            <input className = "ws-card"
+                                placeholder="Accessory"
+                                name="item4"
+                                type="item4"
+                                id="item4" 
+                                onChange={handleChange}/>
+            <label>accessory2</label>
+            <input className = "ws-card" 
+                                placeholder="Accessory"
+                                name="item5"
+                                type="item5"
+                                id="item5"
+                                onChange={handleChange}/>
+            <label>accessory3</label>
+            <input className = "ws-card"
+                                placeholder="Accessory"
+                                name="item6"
+                                type="item6"
+                                id="item6" 
+                                onChange={handleChange}/>
+            <label>accessory4</label>
+            <input className = "ws-card"
+                                placeholder="Accessory"
+                                name="item7"
+                                type="item7"
+                                id="item7"
+                                onChange={handleChange}/>
+            <button type="submit">Submit</button>
+        </form>
         </div>
+
     );
 }
 

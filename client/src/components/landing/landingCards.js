@@ -1,37 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { GET_OUTFITS } from '../../utils/queries';
+import React, { useState } from 'react';
 
-const Card = ({ outfit }) => {
-    const { loading, data, error } = useQuery(GET_OUTFITS);
+const LandingCards = ({ onAddClothes }) => {
+    const [selectedClothes, setSelectedClothes] = useState([]);
 
-    if (loading) {
-        return <p>Loading...</p>
-    }
+    const handleRemove = (index) => {
+        setSelectedClothes((prevSelectedClothes) =>
+            prevSelectedClothes.filter((_, i) => i !== index)
+        );
+    };
 
-    if (error) {
-        return <p>Error: {error.message}</p>
-    }
+    const renderCards = () => {
+        const columns = [];
+        for (let col = 0; col < 4; col++) {
+            const rows = [];
+            for (let row = 0; row < 2; row++) {
+                const index = row * 4 + col;
+                if (index < selectedClothes.length) {
+                    rows.push(
+                        <div key={index} className="card" style={{ width: '300px' }}>
+                            <p>{selectedClothes[index]}</p>
+                            <button onClick={() => handleRemove(index)}>Remove</button>
+                        </div>
+                    );
+                } else {
+                    rows.push(
+                        <div key={index} className="empty-card" style={{ width: '300px' }}></div>
+                    );
+                }
+            }
+            columns.push(
+                <div key={col} className="card-column">
+                    {rows}
+                </div>
+            );
+        }
+        return columns;
+    };
 
     return (
-        <div className="card">
-            {data.outfits.map((outfit) => {
-                <div key={outfit.id}>
-                    <h3>{outfit.name}</h3>
-                    <div className="image-container">
-                        {outfit.item1 && <img src={outfit.item1.imageUrl} alt={outfit.item1.name} />}
-                        {outfit.item2 && <img src={outfit.item2.imageUrl} alt={outfit.item2.name} />}
-                        {outfit.item3 && <img src={outfit.item3.imageUrl} alt={outfit.item3.name} />}
-                        {outfit.item4 && <img src={outfit.item4.imageUrl} alt={outfit.item4.name} />}
-                        {outfit.item5 && <img src={outfit.item5.imageUrl} alt={outfit.item5.name} />}
-                        {outfit.item6 && <img src={outfit.item6.imageUrl} alt={outfit.item6.name} />}
-                        {outfit.item7 && <img src={outfit.item7.imageUrl} alt={outfit.item7.name} />}
-                    </div>
-                </div>
-            })}
+        <div>
+            <div className="grid-container">{renderCards()}</div>
+            <button onClick={() => onAddClothes(selectedClothes)}>Add to Outfit</button>
         </div>
     );
 };
 
-export default Card;
+export default LandingCards;
