@@ -241,8 +241,6 @@ const Sidebar = () => {
         </div>
       </header>
 
-      <LandingCards></LandingCards>
-
     </div>
   )
 }
