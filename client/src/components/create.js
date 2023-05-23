@@ -8,7 +8,7 @@ export default function Workstation() {
     return(
         <body>
             <h1 className='title'>Create an outfit</h1>
-            <div className = "ws-card"></div>
+            <div className = "ws-card">Choose Wisely</div>
         </body>
     );
 }
