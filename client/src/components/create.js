@@ -5,10 +5,10 @@ import '../create.css';
 
 
 export default function Workstation() {
-    return(
+    return (
         <body>
             <h1 className='title'>Create an outfit</h1>
-            <div className = "ws-card">Choose Wisely</div>
+            <div className="ws-card">Choose Wisely</div>
         </body>
     );
 }
