@@ -1,9 +1,13 @@
-.side-bar, .search {
+.side-bar,
+.search {
   position: fixed;
   top: 0;
   background: #fff;
   z-index: 100;
   transition: 0.3s;
+  border: none;
+  outline: none;
+  display: flex;
 }
 
 .side-bar {
@@ -11,6 +15,7 @@
   bottom: 0;
   width: 120px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
 }
 
 .side-bar .button {
@@ -39,7 +44,7 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
   font-size: 40px;
   padding: 0 20px;
-  border: none;
+  align-items: center;
 }
 
 .search:focus::placeholder {
@@ -47,7 +52,8 @@
   transition: 0.3s;
 }
 
-.login, .register {
+.login,
+.register {
   position: fixed;
   top: 0;
   right: 0;
@@ -56,13 +62,16 @@
   background: #fff;
   border: none;
   z-index: 100;
+  display: flex;
+  align-items: center;
 }
 
 .register {
   right: 80px;
 }
 
-.login:hover, .register:hover {
+.login:hover,
+.register:hover {
   background: rgba(0, 0, 0, 0.05);
   transition: 0.3s;
   cursor: pointer;
