@@ -7,7 +7,7 @@ import { ADD_OUTFIT } from '../utils/mutations';
 
 
 
-export default function Workstation() {
+function Workstation() {
     const [formState, setFormState] = useState({ name: '', item1: '', item2: '', item3: '', item4: '', item5: '', item6: '', item7: '' });
     const [addOutfit, { error, loading }] = useMutation(ADD_OUTFIT);
 
@@ -72,6 +72,4 @@ export default function Workstation() {
 }
 
 
-
-const root = ReactDom.createRoot(document.getElementById('root'));
-root.render(<Workstation />)
+export default Workstation
