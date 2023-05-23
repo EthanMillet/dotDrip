@@ -9,6 +9,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Nav from './components/nav.js'
+import Landing from './components/landing/landing'
 
 import Create from './components/create.js'
 import Profile from './components/wardrobe/profile'
@@ -37,6 +38,9 @@ function App() {
     <ApolloProvider client={client}>
       <Nav />
       <Routes>
+
+        <Route path="/" element={<Landing />}>
+        </Route>
         
         <Route path="/create" element={<Create />}>
         </Route>
