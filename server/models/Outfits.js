@@ -17,6 +17,6 @@ const outfitSchema = new Schema({
   item7: {type: Schema.Types.ObjectId, ref: 'Clothes'},
 });
 
-const Outfit = mongoose.model('Outfit', outfitSchema);
+const Outfits = mongoose.model('Outfits', outfitSchema);
 
-module.exports = Outfit;
+module.exports = Outfits;
