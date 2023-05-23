@@ -15,14 +15,17 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    outfit: async (parent, { _id }) => {
+    outfit: async (parent, { _id }, context) => {
       return await Outfits.findById(_id);
     },
     outfits: async () => {
       return await Outfits.find();
     },
-    clothes: async (parent, { _id }) => {
-      return await Clothes.findById(_id);
+    clothes: async (parent, args, context) => {
+      if (context.user) {
+      return await Clothes.findById(context.user._id);
+      }
+      throw new AuthenticationError('Not logged in');
     }
   },
   Mutation: {
