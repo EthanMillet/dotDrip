@@ -10,7 +10,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Nav from './components/nav.js'
 
-import Create from './components/Create.js'
+import Create from './components/create.js'
 import Profile from './components/wardrobe/profile'
 
 
@@ -35,7 +35,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
- 
+      <Nav />
       <Routes>
         <Route path="/" element={<Nav />}>
         </Route>
