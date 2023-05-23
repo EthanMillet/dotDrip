@@ -9,24 +9,20 @@ const resolvers = {
     // Query resolvers here 
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id);
+        const user = await User.findOne({_id: context.user._id}).populate([{ path: 'clothes', strictPopulate: false }, { path: 'outfits', strictPopulate: false }])
         return user;
       }
       throw new AuthenticationError('Not logged in');
     },
 
-    outfit: async (parent, { _id }, context) => {
+    outfit: async (parent, { _id }) => {
       return await Outfits.findById(_id);
     },
     outfits: async () => {
       return await Outfits.find();
     },
-    clothes: async (parent, args, context) => {
-      if (context.user) {
-      const userClothes = await User.findById(context.user._id);
-      return userClothes.clothes;
-      }
-      throw new AuthenticationError('Not logged in');
+    clothes: async (parent, { _id }) => {
+      return await Clothes.find();
     }
   },
   Mutation: {
@@ -37,11 +33,15 @@ const resolvers = {
       return { token, user };
     },
     addOutfit: async (parent, args, context) => {
-      console.log(context);
       if (context.user) {
-        const outfit = Outfits.create(args);
-        await User.findByIdAndUpdate(context.user._id, { $push: { outifts: outfit } })
-        return outfit;
+        const outfit = await Outfits.create(args);
+        console.log(outfit.id)
+        
+        const user = await User.findOneAndUpdate(
+          {_id: context.user._id}, 
+          {$push: { outfits: outfit.id }})
+        console.log(user.outfits)
+          return { outfit, user };
       }
       throw new AuthenticationError('Not logged in');
     },

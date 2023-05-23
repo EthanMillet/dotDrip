@@ -172,6 +172,10 @@
   margin: 0;
 }
 
+.workstation {
+  margin-top: 10%;
+  margin-left: 25%;
+}
 button {
   margin-top: 10px;
 }

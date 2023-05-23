@@ -1,4 +1,4 @@
-import Clothes from './clothes.js';
+
 
 const Profile = () => {
     return (
