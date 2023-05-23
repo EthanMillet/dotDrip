@@ -74,8 +74,6 @@
 }
 
 
-.SignUp {
-=======
 .register{
 
   position: fixed;
@@ -91,6 +89,7 @@
 
 .SignUp:hover {
   background: rgba(0, 0, 0, 0.05);
+}
 
 .register:hover{
   background:rgba(0,0,0,0.05);
