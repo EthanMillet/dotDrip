@@ -23,7 +23,8 @@ const resolvers = {
     },
     clothes: async (parent, args, context) => {
       if (context.user) {
-      return await Clothes.findById(context.user._id);
+      const userClothes = await User.findById(context.user._id);
+      return userClothes.clothes;
       }
       throw new AuthenticationError('Not logged in');
     }
