@@ -4,10 +4,14 @@ import { GET_CLOTHES } from '../../utils/queries';
 
 
 const Item = () => {
-    const { loading, data } = useQuery(GET_CLOTHES);
+    const { loading, data, error } = useQuery(GET_CLOTHES);
 
     if (loading) {
         return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error.message}</p>
     }
 
     const clothesItems = data?.clothes || [];
