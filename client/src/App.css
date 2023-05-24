@@ -176,9 +176,6 @@
   margin-top: 10%;
   margin-left: 25%;
 }
-button {
-  margin-top: 10px;
-}
 
 .landing {
   display: flex;
@@ -188,6 +185,6 @@ button {
   gap: 20px;
 }
 
-header {
+.landing-header {
   padding-top: 50px;
 }
