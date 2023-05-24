@@ -1,11 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_CLOTHES } from '../../utils/queries';
+import { GET_USER } from '../../utils/queries';
 
 
 
 const Item = () => {
-    const { loading, data, error } = useQuery(GET_CLOTHES);
+    const { loading, data, error } = useQuery(GET_USER);
 
 
     if (loading) {
@@ -15,7 +15,7 @@ const Item = () => {
         return <p>Error: {error.message}</p>
     }
 
-    const clothesItems = data?.clothes || [];
+    const clothesItems = data?.user?.clothes || [];
 
 
     return (
