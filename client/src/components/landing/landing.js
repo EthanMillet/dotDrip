@@ -18,7 +18,6 @@ const Landing = () => {
         <div className="landing">
             <div className="landing-header">
                 <h1>Look At All These Outfits</h1>
-                <Link to="/profile">Your Profile</Link>
             </div>
             <LandingCards onAddClothes={handleAddClothes} />
         </div>
