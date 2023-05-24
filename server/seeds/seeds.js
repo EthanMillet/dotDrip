@@ -17,21 +17,26 @@ conn.once('open', async () => {
       });
       const clothes2 = await Clothes.create({
         name: 'Pants',
-        itemUrl: 'https://example.com/pants',
-        imageUrl: 'https://example.com/pants.jpg'
+        itemUrl: 'https://images-dynamic-arcteryx.imgix.net/S23/1350x1710/Beta-AR-Pant-Black.jpg?auto=format%2Ccompress&q=75&ixlib=react-9.7.0&h=525&w=450',
+        imageUrl: 'https://images-dynamic-arcteryx.imgix.net/S23/1350x1710/Beta-AR-Pant-Black.jpg?auto=format%2Ccompress&q=75&ixlib=react-9.7.0&h=525&w=450'
       });
-
-      // Create sample outfits
-      const outfit1 = await Outfits.create({
-        name: 'Casual Outfit',
-        item1: clothes1._id,
-        item2: clothes2._id
+      const clothes3 = await Clothes.create({
+        name: 'Pants',
+        itemUrl: 'https://www.ssense.com/en-us/women/product/yume-yume/black-cloud-walker-boots/10792481',
+        imageUrl: 'https://img.ssensemedia.com/images/b_white,g_center,f_auto,q_auto:best/222844F113003_1/yume-yume-black-cloud-walker-boots.jpg'
       });
-      const outfit2 = await Outfits.create({
-        name: 'Formal Outfit',
-        item1: clothes2._id,
-        item2: clothes1._id
-      });
+      
+      // // Create sample outfits
+      // const outfit1 = await Outfits.create({
+      //   name: 'Casual Outfit',
+      //   item1: clothes1._id,
+      //   item2: clothes2._id
+      // });
+      // const outfit2 = await Outfits.create({
+      //   name: 'Formal Outfit',
+      //   item1: clothes2._id,
+      //   item2: clothes1._id
+      // });
 
       // Create a sample user
       await User.create({
@@ -39,7 +44,7 @@ conn.once('open', async () => {
         email: 'user@example.com',
         password: 'password123',
         clothes: [clothes1._id, clothes2._id],
-        outfits: [outfit1._id, outfit2._id]
+        // outfits: [outfit1._id, outfit2._id]
       });
 
       console.log('Sample data seeded successfully.');
