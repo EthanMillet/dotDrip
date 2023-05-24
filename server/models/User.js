@@ -20,7 +20,7 @@ const userSchema = new Schema({
     minlength: 5
   },
   clothes: [{type: Schema.Types.ObjectId, ref: 'Clothes'}],
-  outfits: [{type: Schema.Types.ObjectId, ref: 'Outfit'}]
+  outfits: [{type: Schema.Types.ObjectId, ref: 'Outfits'}]
 });
 
 // set up pre-save middleware to create password
