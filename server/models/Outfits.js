@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const Clothes = require('./Clothes');
 
 const outfitSchema = new Schema({
   name: {
