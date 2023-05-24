@@ -20,6 +20,7 @@ const resolvers = {
         populate: {path: 'item6'},
         populate: {path: 'item7'},
         strictPopulate: false }])
+
         console.log(user)
         return user;
       }
