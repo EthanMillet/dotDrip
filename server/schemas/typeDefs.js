@@ -10,18 +10,18 @@ const typeDefs = gql`
       }
       
       type Clothes {
-        _id: ID!
+        _id: ID
         name: String
         itemUrl: String
         imageUrl: String
       }
       
       type Outfits {
-        _id: ID!
-        name: String!
-        item1: Clothes!
-        item2: Clothes!
-        item3: Clothes!
+        _id: ID
+        name: String
+        item1: Clothes
+        item2: Clothes
+        item3: Clothes
         item4: Clothes
         item5: Clothes
         item6: Clothes
