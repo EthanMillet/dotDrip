@@ -6,7 +6,7 @@ const typeDefs = gql`
         username: String
         email: String
         clothes: [Clothes]
-        outfits: [Outfit]
+        outfits: [Outfits]
       }
       
       type Clothes {
@@ -16,7 +16,7 @@ const typeDefs = gql`
         imageUrl: String
       }
       
-      type Outfit {
+      type Outfits {
         _id: ID!
         name: String!
         item1: Clothes!
@@ -35,15 +35,15 @@ const typeDefs = gql`
 
       type Query {
         user: User
-        outfit(_id: ID!): Outfit
-        outfits: [Outfit]
+        outfit(_id: ID!): Outfits
+        outfits: [Outfits]
         clothes: [Clothes] 
     }
 
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        addOutfit(name: String!, item1: ID!, item2: ID!, item3: ID!, item4: ID, item5: ID, item6: ID, item7: ID): Outfit
-        deleteOutfit(id: ID!): Outfit
+        addOutfit(name: String!, item1: ID!, item2: ID!, item3: ID!, item4: ID, item5: ID, item6: ID, item7: ID): Outfits
+        deleteOutfit(id: ID!): Outfits
         addClothes(name: String!, itemUrl: String!, imageUrl: String!): Clothes
         deleteClothes(id: ID!): Clothes
         login(email: String!, password: String!): Auth
