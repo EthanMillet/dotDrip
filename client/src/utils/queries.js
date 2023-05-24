@@ -62,8 +62,8 @@ export const GET_USER = gql`
 `;
 
 export const GET_OUTFIT = gql`
-  query getOutfit($_id: ID!) {
-    outfit(_id: $_id) {
+  query getOutfits($_id: ID!) {
+    outfits(_id: $_id) {
       _id
       item1 {
         _id
