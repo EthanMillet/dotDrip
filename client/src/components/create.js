@@ -10,7 +10,7 @@ function Workstation() {
     const { loading, error, data } = useQuery(GET_USER);
     console.log(data)
 
-    const [formState, setFormState] = useState({ name: data.user.clothes[0].name, item1:data.user.clothes[0].name, item2:data.user.clothes[0].name, item3:data.user.clothes[0].name, item4:data.user.clothes[0].name, item5:data.user.clothes[0].name, item6:data.user.clothes[0].name, item7:data.user.clothes[0].name });
+    const [formState, setFormState] = useState({ name: data.user.clothes[0]._id, item1:data.user.clothes[0]._id, item2:data.user.clothes[0]._id, item3:data.user.clothes[0]._id, item4:data.user.clothes[0]._id, item5:data.user.clothes[0]._id, item6:data.user.clothes[0]._id, item7:data.user.clothes[0]._id });
     const [addOutfit] = useMutation(ADD_OUTFIT);
 
     const handleFormSubmit = async (event) => {
