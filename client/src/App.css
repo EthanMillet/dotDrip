@@ -10,10 +10,27 @@
   display: flex;
 }
 
+@media screen and (max-width: 400px) {
+  .side-bar,
+  .search {
+   max-width: 75px;
+   bottom: 0;
+   
+   max-height: 25px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .side-bar,
+  .search {
+   max-width: 75px;
+  }
+}
+
 .side-bar {
   left: 0;
   bottom: 0;
-  width: 120px;
+  width: 100px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   flex-direction: column;
 }
@@ -31,6 +48,8 @@
   text-decoration: none;
   color: #000;
 }
+
+
 
 .side-bar .button:hover,
 .search:hover {
@@ -57,6 +76,7 @@
   position: fixed;
   top: 0;
   right: 0;
+  left:100;
   width: 80px;
   height: 60px;
   background: #fff;
@@ -66,9 +86,20 @@
   align-items: center;
 }
 
+@media screen and (max-width: 400px) {
+  .login,
+  .register {
+  position: absolute;
+   max-width: 80px;
+   left:75;
+  }
+}
+
 .register {
   right: 80px;
 }
+
+
 
 .login:hover,
 .register:hover {
@@ -185,8 +216,29 @@
   gap: 20px;
 }
 
-
+@media screen and (max-width: 400px) {
+  .landing,h1 { display:none
+   
+  }
+}
 .profile {
   margin-left: 25%;
   margin-top: 10%;
+}
+
+.register {
+  margin-left: 25%;
+
+}
+
+
+
+@media screen and (max-width: 400px) {
+  body {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    left:75px;
+    top:33;
+  }
 }

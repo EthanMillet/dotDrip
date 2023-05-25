@@ -13,7 +13,7 @@ const UserFits = () => {
     return (
         <div className='outfitTab'>
            {data.user.outfits.map((fit) => (
-                <div key={fit._id}>
+                <div key={fit._id} >
                     <h3>{fit.item1.name}</h3>
                     <img src={fit.item1.imageUrl} alt={fit.item1.name}/>
 
