@@ -3,6 +3,7 @@ import Clothes from './clothes.js';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_CLOTHES } from '../../utils/mutations';
+import './../../profile.css'
 
 const Profile = () => {
 
