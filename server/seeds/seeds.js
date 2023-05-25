@@ -21,7 +21,7 @@ conn.once('open', async () => {
         imageUrl: 'https://images-dynamic-arcteryx.imgix.net/S23/1350x1710/Beta-AR-Pant-Black.jpg?auto=format%2Ccompress&q=75&ixlib=react-9.7.0&h=525&w=450'
       });
       const clothes3 = await Clothes.create({
-        name: 'Pants',
+        name: 'Sneakers',
         itemUrl: 'https://www.ssense.com/en-us/women/product/yume-yume/black-cloud-walker-boots/10792481',
         imageUrl: 'https://img.ssensemedia.com/images/b_white,g_center,f_auto,q_auto:best/222844F113003_1/yume-yume-black-cloud-walker-boots.jpg'
       });
