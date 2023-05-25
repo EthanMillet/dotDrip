@@ -16,7 +16,7 @@ import Profile from './components/wardrobe/profile'
 
 
 const httpLink = createHttpLink({
-  uri: process.env.MONGODB_URI 
+  uri: process.env.herokuLink || 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {

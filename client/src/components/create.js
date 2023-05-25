@@ -39,9 +39,9 @@ function Workstation() {
     if (error) return `Error! ${error.message}`
 
     return(
-        <div className="workstation">
+        <div >
 
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit} className="workstation">
             <label htmlFor="name">Name</label>
             <input
                     placeholder="Outfit Name"
