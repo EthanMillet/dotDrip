@@ -1,47 +1,54 @@
 import React, { useState } from 'react';
 
-const LandingCard = ({ image, onRemove }) => {
-    return (
-        <div className="card" style={{ width: '300px' }}>
-            <img src={image} alt="Clothing" />
-            <button onClick={onRemove}>Remove</button>
-        </div>
-    );
-};
+import { useQuery } from '@apollo/client';
+import { GET_OUTFITS } from '../../utils/queries';
 
-const LandingCards = ({ onAddClothes }) => {
-    const [selectedClothes, setSelectedClothes] = useState([]);
+const LandingCard = () => {
 
-    const handleRemove = (index) => {
-        setSelectedClothes((prevSelectedClothes) =>
-            prevSelectedClothes.filter((_, i) => i !== index)
-        );
-    };
+    const { loading, error, data } = useQuery(GET_OUTFITS);
 
-    const renderCards = () => {
-        const emptyCardCount = 9 - selectedClothes.length;
-        const cards = selectedClothes.map((image, index) => (
-            <LandingCard
-                key={index}
-                image={image}
-                onRemove={() => handleRemove(index)}
-            />
-        ));
+    if (loading) return "Loading..."
+    if (error) return `Error! ${error.message}`;
 
-        for (let i = 0; i < emptyCardCount; i++) {
-            cards.push(
-                <div key={`empty-card-${i}`} className="empty-card" style={{ width: '300px' }}></div>
-            );
-        }
-
-        return cards;
-    };
 
     return (
         <div>
-            <div className="grid-container">{renderCards()}</div>
+            {data.outfits.map((outfits) => (
+            <div key={outfits._id} className="card" style={{ width: '300px', height: 'auto'} }>
+                <h2>{outfits.name}</h2>
+                <h2>{outfits.item1.name}</h2>
+                <img src={outfits.item1.imageUrl} alt="Logo"/>
+                <button  onClick={() => {window.location.replace(outfits.item1.itemUrl)}}>See Product</button>
+
+                <h2>{outfits.item2.name}</h2>
+                <img src={outfits.item2.imageUrl} alt="Logo"/>
+                <button  onClick={() => {window.location.replace(outfits.item2.itemUrl)}}>See Product</button>
+
+                <h2>{outfits.item3.name}</h2>
+                <img src={outfits.item3.imageUrl} alt="Logo"/>
+                <button  onClick={() => {window.location.replace(outfits.item3.itemUrl)}}>See Product</button>
+
+                <h2>{outfits.item4.name}</h2>
+                <img src={outfits.item4.imageUrl} alt="Logo"/>
+                <button  onClick={() => {window.location.replace(outfits.item4.itemUrl)}}>See Product</button>
+
+                <h2>{outfits.item5.name}</h2>
+                <img src={outfits.item5.imageUrl} alt="Logo"/>
+                <button  onClick={() => {window.location.replace(outfits.item5.itemUrl)}}>See Product</button>
+
+                <h2>{outfits.item6.name}</h2>
+                <img src={outfits.item6.imageUrl} alt="Logo"/>
+                <button  onClick={() => {window.location.replace(outfits.item6.itemUrl)}}>See Product</button>
+
+                <h2>{outfits.item7.name}</h2>
+                <img src={outfits.item7.imageUrl} alt="Logo"/>
+                <button  onClick={() => {window.location.replace(outfits.item7.itemUrl)}}>See Product</button>
+
+        </div>
+            ))}
+
         </div>
     );
 };
 
-export default LandingCards;
+export default LandingCard;

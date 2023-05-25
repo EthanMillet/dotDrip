@@ -9,7 +9,19 @@ const resolvers = {
     // Query resolvers here 
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findOne({_id: context.user._id}).populate([{ path: 'clothes', strictPopulate: false }, { path: 'outfits', strictPopulate: false }])
+        const user = await User.findOne({_id: context.user._id}).populate(
+        [{ path: 'clothes', strictPopulate: false }, 
+        { path: 'outfits', 
+        populate: {path: 'item1'},
+        populate: {path: 'item2'},
+        populate: {path: 'item3'},
+        populate: {path: 'item4'},
+        populate: {path: 'item5'},
+        populate: {path: 'item6'},
+        populate: {path: 'item7'},
+        strictPopulate: false }])
+
+        console.log(user)
         return user;
       }
       throw new AuthenticationError('Not logged in');
@@ -19,7 +31,17 @@ const resolvers = {
       return await Outfits.findById(_id);
     },
     outfits: async () => {
-      return await Outfits.find();
+      const outfits = await Outfits.find()
+      .populate('item1')
+      .populate('item2')
+      .populate('item3')
+      .populate('item4')
+      .populate('item5')
+      .populate('item6')
+      .populate('item7')
+
+      
+      return outfits
     },
     clothes: async (parent, { _id }) => {
       return await Clothes.find();
@@ -46,7 +68,6 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     addClothes: async (parent, args, context) => {
-      console.log(context);
       if (context.user) {
         const clothing = await Clothes.create(args);
         await User.findByIdAndUpdate(context.user._id, { $push: { clothes: clothing } })
