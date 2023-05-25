@@ -7,8 +7,7 @@ import { useQuery } from '@apollo/client';
 import { GET_USER } from '../utils/queries';
 
 function Workstation() {   
-    const { loading, error, data } = useQuery(GET_USER);
-    console.log(data)
+
 
     const [formState, setFormState] = useState({ name: data.user.clothes[0]._id, item1:data.user.clothes[0]._id, item2:data.user.clothes[0]._id, item3:data.user.clothes[0]._id, item4:data.user.clothes[0]._id, item5:data.user.clothes[0]._id, item6:data.user.clothes[0]._id, item7:data.user.clothes[0]._id });
     const [addOutfit] = useMutation(ADD_OUTFIT);
@@ -34,7 +33,8 @@ function Workstation() {
         [name]: value,
     });
     };
-
+    const { loading, error, data } = useQuery(GET_USER);
+    console.log(data)
 
     if (loading) return "Loading..."
     if (error) return `Error! ${error.message}`;
