@@ -6,10 +6,8 @@ import { ADD_OUTFIT } from '../utils/mutations';
 import { useQuery } from '@apollo/client';
 import { GET_USER } from '../utils/queries';
 
-function Workstation() {   
-
-
-    const [formState, setFormState] = useState({ name: data.user.clothes[0]._id, item1:data.user.clothes[0]._id, item2:data.user.clothes[0]._id, item3:data.user.clothes[0]._id, item4:data.user.clothes[0]._id, item5:data.user.clothes[0]._id, item6:data.user.clothes[0]._id, item7:data.user.clothes[0]._id });
+function Workstation() {
+    const [formState, setFormState] = useState({ name: '', item1: '', item2: '', item3: '', item4: '', item5: '', item6: '', item7: '' });
     const [addOutfit] = useMutation(ADD_OUTFIT);
 
     const handleFormSubmit = async (event) => {
@@ -33,11 +31,12 @@ function Workstation() {
         [name]: value,
     });
     };
+
+
     const { loading, error, data } = useQuery(GET_USER);
-    console.log(data)
 
     if (loading) return "Loading..."
-    if (error) return `Error! ${error.message}`;
+    if (error) return `Error! ${error.message}`
 
     return(
         <div className="workstation">
