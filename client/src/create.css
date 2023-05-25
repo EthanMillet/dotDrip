@@ -19,3 +19,12 @@
     align-items: center;
 }
 
+@media screen and (max-width: 400px) {
+    .landing {
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      left:75;
+      top:15;
+    }
+}
