@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config()
+import * as dotenv from 'dotenv';
+dotenv.config()
 const secret = process.env.PASSKEY;
+
 const expiration = '2h';
 
 module.exports = {
