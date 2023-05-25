@@ -18,6 +18,8 @@ const Profile = () => {
                 itemUrl: formState.itemUrl, 
                 imageUrl: formState.imageUrl },
             });
+
+            window.location.reload();
             console.log('Added Clothing')
         } catch (e) {
             console.log(e);

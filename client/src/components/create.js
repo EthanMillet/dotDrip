@@ -51,6 +51,7 @@ function Workstation() {
                     onChange={handleChange} />
             <label htmlFor="item1">Top</label>
             <select name="item1" id="item1" onChange={handleChange}>
+                <option disabled selected>Select</option>
                 {data.user.clothes.map((clothesItem) => (
                     <option value={clothesItem._id} key={clothesItem._id}>
                     {clothesItem.name}
@@ -59,6 +60,7 @@ function Workstation() {
 
             <label htmlFor="item2">Bottoms</label>
             <select name="item2" id="item2" onChange={handleChange}>
+            <option disabled selected>Select</option>
                 {data.user.clothes.map((clothesItem) => (
                     <option value={clothesItem._id} key={clothesItem._id}>
                         {clothesItem.name}
@@ -67,6 +69,7 @@ function Workstation() {
 
             <label htmlFor="item3">Shoes</label>
             <select name="item3" id="item3" onChange={handleChange}>
+            <option disabled selected>Select</option>
                 {data.user.clothes.map((clothesItem) => (
                     <option value={clothesItem._id} key={clothesItem._id}>
                         {clothesItem.name}
@@ -75,6 +78,7 @@ function Workstation() {
             
             <label htmlFor="item4">Accessory</label>
             <select name="item4" id="item4" onChange={handleChange}>
+            <option disabled selected>Select</option>
                 {data.user.clothes.map((clothesItem) => (
                     <option value={clothesItem._id} key={clothesItem._id}>
                         {clothesItem.name}
@@ -83,6 +87,7 @@ function Workstation() {
             
             <label htmlFor="item5">Accessory</label>
             <select name="item5" id="item5" onChange={handleChange}>
+            <option disabled selected>Select</option>
                 {data.user.clothes.map((clothesItem) => (
                     <option value={clothesItem._id} key={clothesItem._id}>
                         {clothesItem.name}
@@ -93,6 +98,7 @@ function Workstation() {
 
             <label htmlFor="item6">Accessory</label>
             <select name="item6" id="item6" onChange={handleChange}>
+            <option disabled selected>Select</option>
                 {data.user.clothes.map((clothesItem) => (
                     <option value={clothesItem._id} key={clothesItem._id}>
                         {clothesItem.name}
@@ -101,6 +107,7 @@ function Workstation() {
 
             <label htmlFor="item7">Accessory</label>
             <select name="item7" id="item7" onChange={handleChange}>
+            <option disabled selected>Select</option>
                 {data.user.clothes.map((clothesItem) => (
                     <option value={clothesItem._id} key={clothesItem._id}>
                         {clothesItem.name}
