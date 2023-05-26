@@ -10,20 +10,13 @@
   display: flex;
 }
 
-@media screen and (max-width: 400px) {
-  .side-bar,
-  .search {
-   max-width: 75px;
-   bottom: 0;
-   
-   max-height: 25px;
-  }
-}
 
 @media screen and (max-width: 400px) {
   .side-bar,
   .search {
    max-width: 75px;
+   bottom: 0;
+   max-height: 25px;
   }
 }
 
@@ -61,25 +54,51 @@
   right: 0;
   height: 60px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: rgba(240, 240, 240, 0.06);
   font-size: 40px;
   padding: 0 20px;
   align-items: center;
+  position:absolute;
+  
 }
+
+@media (max-width: 400px) {
+  .search {
+    width: 33%;
+    max-width: 255px;
+   top: 550px;;
+   transform: translateX(33%);
+   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+   content:none;
+  }
+  .search::placeholder {
+    content: "Search";
+    transition: 0.3s;
+    color: #000;
+  }
+}
+
 
 .search:focus::placeholder {
   color: transparent;
   transition: 0.3s;
 }
 
+.login{
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
 .login,
 .register {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.01);
   position: fixed;
+  color:lightgray;
   top: 0;
   right: 0;
   left:100;
   width: 80px;
   height: 60px;
-  background: #fff;
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -92,11 +111,14 @@
   position: absolute;
    max-width: 80px;
    left:75;
+
   }
 }
 
 .register {
   right: 80px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 
@@ -107,6 +129,18 @@
   transition: 0.3s;
   color: white;
   cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .login-modal {
+    
+    justify-content: center;
+    max-width: 133px;
+    max-height: 200px;
+   
+  }
 }
 
 .modal-header {

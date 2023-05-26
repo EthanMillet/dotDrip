@@ -6,3 +6,13 @@
     margin-top: 2rem;
     margin-right: 19.775rem;
 }
+
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-right: 19.775rem;
+}
